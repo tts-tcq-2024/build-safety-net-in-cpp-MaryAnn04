@@ -20,5 +20,5 @@ TEST(SoundexTest, HandlesIgnoredConsonents) {
     EXPECT_EQ(generateSoundex("HWY"), "H000");
 }
 TEST(SoundexTest, HandlesRepeatedCharacter) {
-    EXPECT_EQ(generateSoundex("BUTTERFLY"), "B336");
+    EXPECT_EQ(generateSoundex("BUTTERFLY"), "B361");
 }
