@@ -28,8 +28,8 @@ TEST(SoundexTest, HandlesSameCaseCharacters) {
     EXPECT_EQ(generateSoundex("JACK"), "J000");
 }
 TEST(SoundexTest, HandlesSpecialCharacters) {
-    EXPECT_EQ(generateSoundex("RITA@"), "R200");
+    EXPECT_EQ(generateSoundex("RITA@"), "R300");
 }
 TEST(SoundexTest, HandlesNumerics) {
-EXPECT_EQ(generateSoundex("SITA12"), "S200");
+EXPECT_EQ(generateSoundex("SITA12"), "S300");
 }
