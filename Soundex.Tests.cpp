@@ -23,4 +23,7 @@ TEST(SoundexTest, HandlesRepeatedCharacter) {
     EXPECT_EQ(generateSoundex("BUTTERFLY"), "B361");
     EXPECT_EQ(generateSoundex("Tomorrow"), "T560");
 }
-
+TEST(SoundexTest, HandlesSameCaseCharacters) {
+    EXPECT_EQ(generateSoundex("MANGO"), "M200");
+    EXPECT_EQ(generateSoundex("JACK"), "J000");
+}
