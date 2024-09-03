@@ -22,3 +22,6 @@ TEST(SoundexTest, HandlesIgnoredConsonents) {
 TEST(SoundexTest, HandlesRepeatedCharacter) {
     EXPECT_EQ(generateSoundex("BUTTERFLY"), "B361");
 }
+TEST(SoundexTest, Handlescase5) {
+    EXPECT_EQ(generateSoundex("MANGO"), "M520");
+}
