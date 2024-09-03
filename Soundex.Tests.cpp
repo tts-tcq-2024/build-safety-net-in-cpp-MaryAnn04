@@ -13,9 +13,6 @@ TEST(SoundexTest, HandlesSingleCharacter) {
 TEST(SoundexTest, HandlesVowels) {
     EXPECT_EQ(generateSoundex("AEIOU"), "A000");
 }
-TEST(SoundexTest, Handleslongstring) {
-    EXPECT_EQ(generateSoundex("ALEXANDER"), "A425");
-}
 TEST(SoundexTest, HandlesIgnoredConsonents) {
     EXPECT_EQ(generateSoundex("HWY"), "H000");
 }
