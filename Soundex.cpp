@@ -1,10 +1,10 @@
-#include <cctype>
-#include <string>
 #include <unordered_map>
+#include <string>
+#include <cctype>
 
 char getSoundexCode(char ch, const std::unordered_map<char, char>& soundexMap) {
-    ch = toupper(ch);
-    return soundexMap.count(ch) ? soundexMap.at(ch) : '0';
+    auto it = soundexMap.find(std::toupper(ch));
+    return (it != soundexMap.end()) ? it->second : '0';
 }
 
 std::string generateSoundex(const std::string& name) {
@@ -19,17 +19,15 @@ std::string generateSoundex(const std::string& name) {
         {'R', '6'}
     };
 
-    std::string soundex(1, toupper(name[0]));  
+    std::string soundex(1, std::toupper(name[0]));  
     char prevCode = getSoundexCode(name[0], soundexMap);
 
-    size_t i = 1;
-    while (soundex.length() < 4 && i < name.length()) {
+    for (size_t i = 1; soundex.length() < 4 && i < name.length(); ++i) {
         char code = getSoundexCode(name[i], soundexMap);
         if (code != '0' && code != prevCode) {
             soundex += code;
             prevCode = code;
         }
-        ++i;
     }
 
     soundex.append(4 - soundex.length(), '0'); 
