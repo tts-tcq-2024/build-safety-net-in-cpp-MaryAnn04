@@ -28,7 +28,7 @@ jobs:
         
         
     - name: Lizard Runner
-      uses: Uno-Takashi/Lizard-Runner@v3
+      uses: Uno-Takashi/Lizard-Runner@v2.297.0
       with:
           path: "./"
           CCN: "3"
