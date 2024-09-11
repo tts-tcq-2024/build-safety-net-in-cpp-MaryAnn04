@@ -18,7 +18,7 @@ jobs:
 
        
     - name: Set up CMake
-      uses: threeal/cmake-action@main
+      uses: threeal/cmake-action@v3
 
     - name: Install dependencies
       run: |
