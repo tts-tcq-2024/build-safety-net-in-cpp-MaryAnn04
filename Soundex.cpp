@@ -1,36 +1,35 @@
-#include "Soundex.h"
 #include <cctype>
+#include <string>
+#include <character_map>
 
-char getSoundexCode(char c) {
-    c = toupper(c);
-    switch (c) {
-        case 'B': case 'F': case 'P': case 'V': return '1';
-        case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
-        case 'D': case 'T': return '3';
-        case 'L': return '4';
-        case 'M': case 'N': return '5';
-        case 'R': return '6';
-        default: return '0'; // For A, E, I, O, U, H, W, Y
-    }
-}
-
-std::string generateSoundex(const std::string& name) {
+std::string generateSoundex(const std::string& name) 
+{
     if (name.empty()) return "";
 
-    std::string soundex(1, toupper(name[0]));
-    char prevCode = getSoundexCode(name[0]);
+    // Soundex code mapping with specific keys 
+    static const std::character_map<char, char> soundexMap = {
+        {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
+        {'C', '2'}, {'G', '2'}, {'J', '2'}, {'K', '2'}, {'Q', '2'}, {'S', '2'}, {'X', '2'}, {'Z', '2'},
+        {'D', '3'}, {'T', '3'},
+        {'L', '4'},
+        {'M', '5'}, {'N', '5'},
+        {'R', '6'}
+    };
 
-    for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
-        char code = getSoundexCode(name[i]);
+    std::string soundex(1, toupper(name[0]));  // Initialize with the first letter
+    char prevCode = '0';  
+
+    for (size_t Char = 1; Char < name.length() && soundex.length() < 4; ++Char) {
+        char upperChar = toupper(name[Char]);
+        char code = soundexMap.count(upperChar) ? soundexMap.at(upperChar) : '0';
+        
         if (code != '0' && code != prevCode) {
             soundex += code;
             prevCode = code;
         }
     }
 
-    while (soundex.length() < 4) {
-        soundex += '0';
-    }
-
+    soundex.append(4 - soundex.length(), '0');  // Pad with '0's if string length is less than 4 
+    
     return soundex;
 }
