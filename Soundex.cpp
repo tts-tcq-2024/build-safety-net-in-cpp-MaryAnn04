@@ -1,13 +1,13 @@
 #include <cctype>
 #include <string>
-#include <character_map>
+#include <unordered_map>
 
 std::string generateSoundex(const std::string& name) 
 {
     if (name.empty()) return "";
 
     // Soundex code mapping with specific keys 
-    static const std::character_map<char, char> soundexMap = {
+    static const std::unordered_map<char, char> soundexMap = {
         {'B', '1'}, {'F', '1'}, {'P', '1'}, {'V', '1'},
         {'C', '2'}, {'G', '2'}, {'J', '2'}, {'K', '2'}, {'Q', '2'}, {'S', '2'}, {'X', '2'}, {'Z', '2'},
         {'D', '3'}, {'T', '3'},
