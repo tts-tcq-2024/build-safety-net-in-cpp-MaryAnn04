@@ -24,15 +24,14 @@ std::string generateSoundex(const std::string& name) {
 
     std::string soundex;
     soundex += toupper(name[0]);  // Start with the first letter
-    char prevCode = soundexMap.at(soundex[0]);  // Get the initial code
+    char prevCode = getSoundexCode(soundex[0], soundexMap);  // Get the initial code
 
     for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
-        char upperChar = toupper(name[i]);
-        char code = soundexMap.find(upperChar) != soundexMap.end() ? soundexMap.at(upperChar) : '0';
-
-        // Append code if it's not '0' and different from the previous code
-        soundex += (code != '0' && code != prevCode) ? code : "";
-        prevCode = code;
+        char code = getSoundexCode(name[i], soundexMap);
+        if (code != '0' && code != prevCode) {
+            soundex += code;
+            prevCode = code;
+        }
     }
 
     soundex.append(4 - soundex.length(), '0');  // Pad with '0's if needed
