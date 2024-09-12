@@ -30,7 +30,7 @@ std::string generateSoundex(const std::string& name)
 
     for (size_t Char = 1; Char < name.length() && soundex.length() < 4; ++Char) 
     {
-        char code = getSoundexCode(name[i], soundexMap);
+        char code = getSoundexCode(name[Char], soundexMap);
         if (code != '0' && code != prevCode) {
             soundex += code;
             prevCode = code;
