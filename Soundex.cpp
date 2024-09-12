@@ -31,7 +31,7 @@ std::string generateSoundex(const std::string& name) {
         char code = soundexMap.find(upperChar) != soundexMap.end() ? soundexMap.at(upperChar) : '0';
 
         // Append code if it's not '0' and different from the previous code
-        soundex += (code != '0' && code != prevCode) ? code : '';
+        soundex += (code != '0' && code != prevCode) ? code : "";
         prevCode = code;
     }
 
