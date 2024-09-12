@@ -1,35 +1,33 @@
 #include <gtest/gtest.h>
 #include "Soundex.h"
 
+struct SoundexTestCase {
+    std::string input;
+    std::string expectedOutput;
+};
 
-TEST(SoundexTest, HandlesEmptyString) {
-    EXPECT_EQ(generateSoundex(""), "");
+class SoundexTest : public ::testing::TestWithParam<SoundexTestCase> {};
+
+TEST_P(SoundexTest, HandlesVariousCases) {
+    SoundexTestCase testCase = GetParam();
+    EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
 
-TEST(SoundexTest, HandlesSingleCharacter) {
-    EXPECT_EQ(generateSoundex("A"), "A000");
-    EXPECT_EQ(generateSoundex("R"), "R000");
-}
-TEST(SoundexTest, HandlesVowels) {
-    EXPECT_EQ(generateSoundex("AEIOU"), "A000");
-}
-TEST(SoundexTest, HandlesMixedString) {
-    EXPECT_EQ(generateSoundex("ALEXANDER"), "A425");
-}
-TEST(SoundexTest, HandlesIgnoredConsonents) {
-    EXPECT_EQ(generateSoundex("HWY"), "H000");
-}
-TEST(SoundexTest, HandlesRepeatedCharacter) {
-    EXPECT_EQ(generateSoundex("BUTTERFLY"), "B361");
-    EXPECT_EQ(generateSoundex("Tomorrow"), "T560");
-}
-TEST(SoundexTest, HandlesSameCaseCharacters) {
-    EXPECT_EQ(generateSoundex("MANGO"), "M200");
-    EXPECT_EQ(generateSoundex("JACK"), "J000");
-}
-TEST(SoundexTest, HandlesSpecialCharacters) {
-    EXPECT_EQ(generateSoundex("RITA@"), "R300");
-}
-TEST(SoundexTest, HandlesNumerics) {
-EXPECT_EQ(generateSoundex("SITA12"), "S300");
-}
+INSTANTIATE_TEST_SUITE_P(
+    SoundexTests,
+    SoundexTest,
+    ::testing::Values(
+        SoundexTestCase{"", ""},
+        SoundexTestCase{"A", "A000"},
+        SoundexTestCase{"R", "R000"},
+        SoundexTestCase{"AEIOU", "A000"},
+        SoundexTestCase{"ALEXANDER", "A425"},
+        SoundexTestCase{"HWY", "H000"},
+        SoundexTestCase{"BUTTERFLY", "B361"},
+        SoundexTestCase{"Tomorrow", "T560"},
+        SoundexTestCase{"MANGO", "M200"},
+        SoundexTestCase{"JACK", "J000"},
+        SoundexTestCase{"RITA@", "R300"},
+        SoundexTestCase{"SITA12", "S300"}
+    )
+);
