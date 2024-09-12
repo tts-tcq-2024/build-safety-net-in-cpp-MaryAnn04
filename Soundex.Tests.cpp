@@ -17,7 +17,7 @@ INSTANTIATE_TEST(
     SoundexTests,
     SoundexTest,
     ::testing::Values(
-        SoundexTestCase{"", ""},
+        SoundexTestCase{"", ""}
        
     )
 );
@@ -32,7 +32,7 @@ INSTANTIATE_TEST(
     SoundexTest,
     ::testing::Values(
         SoundexTestCase{"A", "A000"},
-        SoundexTestCase{"R", "R000"},
+        SoundexTestCase{"R", "R000"}
     )
 );
 
@@ -47,7 +47,7 @@ INSTANTIATE_TEST(
     SoundexTest,
     ::testing::Values(
         SoundexTestCase{"AEIOU", "A000"},
-        SoundexTestCase{"HWY", "H000"},
+        SoundexTestCase{"HWY", "H000"}
     )
 );
 
@@ -63,7 +63,7 @@ INSTANTIATE_TEST(
        
         SoundexTestCase{"ALEXANDER", "A425"},
         SoundexTestCase{"MANGO", "M200"},
-        SoundexTestCase{"JACK", "J000"},
+        SoundexTestCase{"JACK", "J000"}
     )
 );
 TEST(SoundexTest, StringWithRepeatedCharacters_ReturnsStringWithKeyValuesIgnoringRepeatedKeyValues) {
@@ -77,7 +77,7 @@ INSTANTIATE_TEST(
     ::testing::Values(
     
         SoundexTestCase{"BUTTERFLY", "B361"},
-        SoundexTestCase{"Tomorrow", "T560"},
+        SoundexTestCase{"Tomorrow", "T560"}
     )
 );
 
