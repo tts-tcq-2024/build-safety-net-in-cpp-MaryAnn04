@@ -11,7 +11,7 @@ struct SoundexTestCase {
 class SoundexTest : public ::testing::TestWithParam<SoundexTestCase> {};
 
 // Test case for handling empty strings
-TEST_P(SoundexTest, HandlesEmptyString) {
+TEST_P(SoundexTest, GenerateSoundex_EmptyString_ReturnsEmptyString) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -25,7 +25,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling single character inputs
-TEST_P(SoundexTest, HandlesSingleCharacter) {
+TEST_P(SoundexTest, GenerateSoundex_SingleCharacter_ReturnsPaddedCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -40,7 +40,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling strings with vowels
-TEST_P(SoundexTest, HandlesVowels) {
+TEST_P(SoundexTest, GenerateSoundex_Vowels_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -54,7 +54,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling mixed strings
-TEST_P(SoundexTest, HandlesMixedString) {
+TEST_P(SoundexTest, GenerateSoundex_MixedString_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -68,7 +68,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling ignored consonants
-TEST_P(SoundexTest, HandlesIgnoredConsonants) {
+TEST_P(SoundexTest, IgnoredConsonants_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -82,7 +82,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling repeated characters
-TEST_P(SoundexTest, HandlesRepeatedCharacters) {
+TEST_P(SoundexTest, RepeatedCharacters_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -97,7 +97,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling same case characters
-TEST_P(SoundexTest, HandlesSameCaseCharacters) {
+TEST_P(SoundexTest, SameCaseCharacters_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -112,7 +112,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling special characters
-TEST_P(SoundexTest, HandlesSpecialCharacters) {
+TEST_P(SoundexTest, SpecialCharacters_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
@@ -126,7 +126,7 @@ INSTANTIATE_TEST_SUITE_P(
 );
 
 // Test case for handling numeric inputs
-TEST_P(SoundexTest, HandlesNumerics) {
+TEST_P(SoundexTest, Numerics_ReturnsSoundexCode) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
 }
