@@ -1,0 +1,112 @@
+Test Specification
+
+Test: Name: SoundexTest
+Test Case 1 Name: GenerateSoundex_EmptyString_ReturnsEmptyString
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string is empty. The expected output for an empty input should be an empty string.
+Input Data:
+* Input: "" (an empty string)
+* Expected Output: "" (an empty string)
+Test Steps:
+1. Setup: Initialize the test case with an empty string as input.
+2. Execution: Call the generateSoundex function with the empty string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output, which is also an empty string.
+Expected Results: The function generateSoundex should return an empty string when given an empty string as input.
+
+Test: Name: SoundexTest
+Test Case 2 Name: GenerateSoundex_SingleCharacter_ReturnsPaddedCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string is SingleCharacter. The expected output for an SingleCharacter input should be a padded string.
+Input Data:
+* Input: "A" 
+* Expected Output: "A000" 
+Test Steps:
+1. Setup: Initialize the test case with an single character string as input.
+2. Execution: Call the generateSoundex function with the SingleCharacter string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output, which is also a padded string.
+Expected Results: The function generateSoundex should return an padded string when given an singlecharacter string as input.
+
+Test: Name: SoundexTest
+Test Case 3 Name: GenerateSoundex_Vowels_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string is Vowels. The expected output for Vowels input should be a padded string.
+Input Data
+* Input: "AEIOU"
+* Expected Output: "A000"
+Test Steps:
+1. Setup: Initialize the test case with an string with vowel as input.
+2. Execution: Call the generateSoundex function with the vowels in string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output, which is also a padded string.
+Expected Results: The function generateSoundex should return a padded string when given a vowles string as input.
+
+Test: Name: SoundexTest
+Test Case 4 Name: GenerateSoundex_MixedString_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string is mixed charactered string. 
+Input Data
+* Input: "ALEXANDER"
+* Expected Output: "A425"
+Test Steps:
+1. Setup: Initialize the test case with mixed charactered string as input.
+2. Execution: Call the generateSoundex function with the mixed charactered string  in string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
+
+Test: Name: SoundexTest
+Test Case 5 Name: IgnoredConsonants_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string has Ignored consonants
+Input Data
+* Input: "HWY" 
+* Expected Output: "H000"
+Test Steps:
+1. Setup: Initialize the test case with Ignored consonants string as input.
+2. Execution: Call the generateSoundex function with the Ignored consonants charactered string in string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
+
+Test: Name: SoundexTest
+Test Case 6 Name: RepeatedCharacters_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string has RepeatedCharacters
+Input Data
+* Input: "BUTTERFLY"
+* Expected Output: "B361"
+Test Steps:
+1. Setup: Initialize the test case with RepeatedCharacters string as input.
+2. Execution: Call the generateSoundex function with the Ignored RepeatedCharacters string in string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
+Test: Name: SoundexTest
+Test Case 7 Name: SameKeyCharacters_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string has SameKeyCharacters
+Input Data
+* Input: "MANGO"
+* Expected Output: "M200"
+Test Steps:
+1. Setup: Initialize the test case with SameKeyCharacters string as input.
+2. Execution: Call the generateSoundex function with the Ignored SameKeyCharacters string in string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
+Test: Name: SoundexTest
+Test Case 8 Name: SpecialCharacters_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string has SpecialCharacters
+Input Data
+* Input: "RITA@" 
+* Expected Output: "R300"
+Test Steps:
+1. Setup: Initialize the test case with SpecialCharacters string as input.
+2. Execution: Call the generateSoundex function with the Ignored SpecialCharacters string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
+Test: Name: SoundexTest
+Test Case 9 Name: Numerics_ReturnsSoundexCode
+Purpose: To verify that the generateSoundex function correctly handles the case when the input string has Numerics
+Input Data
+* Input: "SITA12"
+* Expected Output: "S300" 
+* Test Steps:
+1. Setup: Initialize the test case with Numerics in input string 
+2. Execution: Call the generateSoundex function with the Ignored Numerics in input string string as its argument.
+3. Verification: Check if the output of the generateSoundex function matches the expected output.
+Expected Results: The function generateSoundex should return a soundex code for given input and expected output is achieved.
+
