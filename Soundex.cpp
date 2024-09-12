@@ -2,6 +2,26 @@
 #include <string>
 #include <unordered_map>
 
+// Function to get the Soundex code for a given character
+char getSoundexCode(char c, const std::unordered_map<char, char>& soundexMap) {
+    char upperChar = toupper(c);
+    return soundexMap.count(upperChar) ? soundexMap.at(upperChar) : '0';
+}
+
+// Function to append the Soundex code if it meets the criteria
+void appendSoundexCode(std::string& soundex, char code, char& prevCode) {
+    if (code != '0' && code != prevCode) {
+        soundex += code;
+        prevCode = code;
+    }
+}
+
+// Function to pad the Soundex string to ensure it's 4 characters long
+void padSoundex(std::string& soundex) {
+    soundex.append(4 - soundex.length(), '0');
+}
+
+// Main function to generate the Soundex code
 std::string generateSoundex(const std::string& name) {
     if (name.empty()) return "";
 
@@ -19,16 +39,11 @@ std::string generateSoundex(const std::string& name) {
     char prevCode = '0';  // To handle the first character correctly
 
     for (size_t i = 1; i < name.length() && soundex.length() < 4; ++i) {
-        char upperChar = toupper(name[i]);
-        char code = soundexMap.count(upperChar) ? soundexMap.at(upperChar) : '0';
-        
-        if (code != '0' && code != prevCode) {
-            soundex += code;
-            prevCode = code;
-        }
+        char code = getSoundexCode(name[i], soundexMap);
+        appendSoundexCode(soundex, code, prevCode);
     }
 
-    soundex.append(4 - soundex.length(), '0');  // Pad with '0's if needed
+    padSoundex(soundex);  // Pad with '0's if needed
     
     return soundex;
 }
