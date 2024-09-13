@@ -10,7 +10,7 @@ struct SoundexTestCase {
 // Create a test fixture class with parameterized tests
 class SoundexTest : public ::testing::TestWithParam<SoundexTestCase> {};
 
-// Test case for handling empty strings
+// Test case for Soundex to check for empty strings
 TEST_P(SoundexTest, GenerateSoundex_EmptyString_ReturnsEmptyString) {
     SoundexTestCase testCase = GetParam();
     EXPECT_EQ(generateSoundex(testCase.input), testCase.expectedOutput);
