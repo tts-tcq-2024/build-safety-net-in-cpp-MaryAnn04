@@ -1,4 +1,4 @@
-Test Specification
+Test Specification for Soundex Code Generation.
 
 Test: Name: SoundexTest
 Test Case 1 Name: GenerateSoundex_EmptyString_ReturnsEmptyString
