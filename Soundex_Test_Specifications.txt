@@ -1,7 +1,7 @@
 Test Specification for Soundex Code Generation.
 
-Test: Name: SoundexTest
-Test Case 1 Name: GenerateSoundex_EmptyString_ReturnsEmptyString
+TestSuite: SoundexTestSuite
+Test Case Name: GenerateSoundex_EmptyString_ReturnsEmptyString
 Purpose: To verify that the generateSoundex function correctly handles the case when the input string is empty. The expected output for an empty input should be an empty string.
 Input Data:
 * Input: "" (an empty string)
@@ -12,8 +12,8 @@ Test Steps:
 3. Verification: Check if the output of the generateSoundex function matches the expected output, which is also an empty string.
 Expected Results: The function generateSoundex should return an empty string when given an empty string as input.
 
-Test: Name: SoundexTest
-Test Case 2 Name: GenerateSoundex_SingleCharacter_ReturnsPaddedCode
+TestSuite: SoundexTestSuite
+Test Case Name: GenerateSoundex_SingleCharacter_ReturnsPaddedCode
 Purpose: To verify that the generateSoundex function correctly handles the case when the input string is SingleCharacter. The expected output for an SingleCharacter input should be a padded string.
 Input Data:
 * Input: "A" 
